@@ -2,4 +2,14 @@
   <%= pluralize(@tweet.likes.count, 'Like')%>
 <% end %>
 
-<%= %>
+<%= turbo_stream.update id="tweet_#{@tweet.id}" do %>
+  <% like = @tweet.find_like(current_user) %>
+    <% if @tweet.liked_by?(current_user)%>
+      <%= button_to 'Delete Like', 
+                    tweet_like_path(@tweet, like, like: {user_id: current_user.id, tweet_id: @tweet.id}),
+                    method: :delete
+                    %>
+    <% else %>
+      <%= button_to 'like', tweet_likes_path(@tweet, like: {user_id: current_user.id, tweet_id: @tweet.id})%>
+    <% end %>
+<% end %>
