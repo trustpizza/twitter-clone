@@ -4,8 +4,16 @@ class LikesController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.find(like_params[:tweet_id])
+    @tweet = Tweet.find(params[:tweet_id])
     @like = @tweet.likes.create(like_params)
+
+    respond_to do |format| 
+      if @like.save
+        format.turbo_stream
+      else
+        format.html {render :new}
+      end
+    end 
   end
 
   def destroy

@@ -1,8 +1,17 @@
 <div>
   <%= tweet.body %>
   <%= tweet.author.email %> <br>
-  Likes: <%= tweet.likes.count %>
 </div>
 <%= link_to 'View Tweet', tweet_path(tweet.id) %> 
-<%= button_to 'Like Tweet', tweet_likes_path(tweet, like: {user_id: current_user.id, tweet_id: tweet.id}) %>
 <br>
+<%= turbo_frame_tag id="tweet_#{tweet.id}" do %>
+  <%= button_to 'like', tweet_likes_path(tweet, like: {user_id: current_user.id, tweet_id: tweet.id})%>
+<% end %> <br>
+
+<%= turbo_frame_tag id="tweet_#{tweet.id}_like_count" do %>
+  <%= pluralize(tweet.likes.count, 'Like')%>
+<% end %>
+  
+  
+<br> <br>
+
