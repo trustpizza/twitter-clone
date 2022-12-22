@@ -9,4 +9,8 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   scope :ordered, -> {order(id: :desc)}
+
+  def find_like(user)
+    likes.find_by(user: user)
+  end
 end

@@ -17,7 +17,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    
+    @like = Like.find_by(like_params)
+    binding
   end
 
   private

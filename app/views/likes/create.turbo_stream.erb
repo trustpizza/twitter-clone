@@ -1,3 +1,5 @@
 <%= turbo_stream.update id="tweet_#{@tweet.id}_like_count" do %>
   <%= pluralize(@tweet.likes.count, 'Like')%>
 <% end %>
+
+<%= %>
