@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets, foreign_key: "author_id", class_name: "Tweet"
+  has_many :likes
 end
