@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   def show
+    @tweet = Tweet.find_by(tweet_params)
   end
 
   def index
