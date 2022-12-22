@@ -1,0 +1,5 @@
+<%= form_with(model: @tweet, url: user_tweets_path(current_user))  do |form| %>
+  <%= form.label :body%>
+  <%= form.text_field :body %> <br>
+  <%= form.submit %>
+<% end %>

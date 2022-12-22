@@ -1,0 +1,8 @@
+<%= link_to 'New', new_user_tweet_path(current_user) %>
+
+<% @tweets.each do |tweet| %>
+  <div>
+    <%= tweet.body %>
+    <%= tweet.author.email %>
+  </div>
+<% end %>

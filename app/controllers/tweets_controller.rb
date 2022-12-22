@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
   end
 
   def edit
+
   end
 
   def destroy
@@ -33,6 +34,6 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).include(:body)
+    params.require(:tweet).permit(:body)
   end
 end
