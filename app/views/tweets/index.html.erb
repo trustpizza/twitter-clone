@@ -5,4 +5,5 @@
     <%= tweet.body %>
     <%= tweet.author.email %>
   </div>
+  <%= link_to 'View Tweet', user_tweet_path(current_user, tweet.id) %>
 <% end %>

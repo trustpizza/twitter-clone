@@ -1,10 +1,10 @@
 class TweetsController < ApplicationController
   def show
-    @tweet = Tweet.find_by(tweet_params)
+    @tweet = Tweet.find(params[:id])
   end
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.ordered
   end
 
   def new
@@ -22,6 +22,9 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    @tweet = Tweet.find(params[:id])
+    @user = User.find(@tweet.author_id)
+
 
   end
 
