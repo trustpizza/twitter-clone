@@ -1,7 +1,5 @@
-<%= link_to 'New', new_user_tweet_path(current_user) %>
+<%= turbo_frame_tag id="new_tweet", src:new_user_tweet_path(current_user) %>
 
-<% @tweets.each do |tweet| %>
-  <%= turbo_frame_tag tweet do %>
-    <%= render 'tweet', tweet: tweet %>
-  <% end %>
-<% end %>
+<div id="tweets">
+  <%= render @tweets %>
+</div>
