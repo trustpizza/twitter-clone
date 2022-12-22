@@ -12,6 +12,13 @@ class TweetsController < ApplicationController
   end
 
   def create
+    @tweet = current_user.tweets.build(tweet_params)
+
+    if @tweet.save
+      redirect_to root_url
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
