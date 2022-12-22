@@ -3,9 +3,11 @@ class TweetsController < ApplicationController
   end
 
   def index
+    @tweets = Tweet.all
   end
 
   def new
+    @tweet = Tweet.new
   end
 
   def create
@@ -18,5 +20,11 @@ class TweetsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).include(:body)
   end
 end
