@@ -22,17 +22,18 @@ class TweetsController < ApplicationController
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:tweet_id])
     @user = User.find(@tweet.author_id)
 
 
   end
 
   def destroy
+    @tweet = Tweet.find(params[:tweet_id])
+    @like = @tweet.likes.find_by(tweet_params)
+    @like.destroy
   end
 
-  def update
-  end
 
   private
 
