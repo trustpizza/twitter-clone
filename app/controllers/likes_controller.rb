@@ -17,8 +17,9 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by(like_params)
-    binding
+    @tweet = Tweet.find(params[:tweet_id])
+    @like = @tweet.likes.find_by(like_params)
+    @like.destroy 
   end
 
   private
