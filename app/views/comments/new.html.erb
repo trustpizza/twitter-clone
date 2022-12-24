@@ -1,1 +1,5 @@
-<%= form_with(model: @comment, url: %>
+<%= form_for :comment, url: tweet_comments_path(tweet.id) do |form| %>
+  <%= form.label :body %>
+  <%= form.text_field :body %> <br>
+  <%= form.submit %>
+<% end %>

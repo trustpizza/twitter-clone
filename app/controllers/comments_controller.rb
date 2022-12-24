@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.find(params[:id])
-    @comment = @tweet.comments.create(comment_params)
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = @tweet.comments.build(comment_params)
 
     if @comment.save
       redirect_to tweet_path(params[:id])

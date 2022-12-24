@@ -19,6 +19,8 @@
 <%= turbo_frame_tag id="tweet_#{tweet.id}_like_count" do %>
   <%= pluralize(tweet.likes.count, 'Like')%>
 <% end %>
+
+<%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: @tweet %>
   
   
 <br> <br>
