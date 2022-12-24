@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:show, :edit, :update, :destroy] do
     resources :likes
-
+    resources :comments 
   end
 
   root 'tweets#index'
