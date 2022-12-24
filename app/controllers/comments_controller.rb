@@ -1,14 +1,25 @@
 class CommentsController < ApplicationController
   def new
+    @comment = Comment.new
   end
 
   def create
-  end
+    @tweet = Tweet.find(params[:id])
+    @comment = @tweet.comments.create(comment_params)
 
-  def update
+    if @comment.save
+      redirect_to tweet_path(params[:id])
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @comment = Comment.find_by(comment_params)
+    
+    if @comment.destroy
+      redirecto_to tweet_path(params[:id])
+    end
   end
 
   private
