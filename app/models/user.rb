@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :tweets, foreign_key: "author_id", class_name: "Tweet", dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
