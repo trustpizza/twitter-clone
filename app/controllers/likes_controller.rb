@@ -19,7 +19,14 @@ class LikesController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:tweet_id])
     @like = @tweet.likes.find_by(like_params)
-    @like.destroy 
+
+    respond_to do |format|
+      if @like.destroy 
+        format.turbo_stream
+      else
+        format.html {render :new}
+      end
+    end
   end
 
   private
