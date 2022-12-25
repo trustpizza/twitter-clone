@@ -9,11 +9,13 @@ class CommentsController < ApplicationController
     @comment = @tweet.comments.create(comment_params)
     @comment.commenter_id = current_user.id
     
-    if @comment.save
-      redirect_to root_url
-    else
-      render :new, status: :unprocessable_entity
-    end
+    respond_to do |format|
+      if @comment.save
+        format.turbo_stream
+      else
+        format.html -> {render :new, status: :unprocessable_entity}
+      end
+    end 
   end
 
   def destroy
