@@ -1,1 +1,1 @@
-<%= turbo_stream.prepend "tweet_#{@tweet.id}_new_comment", @comment %>
+<%= turbo_stream.after "tweet_#{@tweet.id}_new_comment", @comment %>

@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.turbo_stream
       else
-        format.html -> {render :new, status: :unprocessable_entity}
+        format.html {render :new, status: :unprocessable_entity}
       end
     end 
   end

@@ -20,20 +20,17 @@
   <%= pluralize(tweet.likes.count, 'Like')%>
 <% end %> <br>
 
-<%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: @tweet %>
-<%= turbo_frame_tag id="tweet_#{tweet.id}_new_commment", src: new_tweet_comment_path(tweet.id)%>
 
 
-<%= turbo_frame_tag id="tweet_#{tweet.id}_comments" do %>
-  <div>
-    Comments:
-    <ul>
-    <% tweet.comments.each do |comment| %>
-      <li><%= render 'comments/comment', comment: comment %></li>
-    <% end %>
-    </ul>
-  </div>
+<%= turbo_frame_tag id="tweet_#{tweet.id}_new_comment" do %>
+  <%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: tweet %> <br>
+  
+</div>
+  <%= render tweet.comments %>
+
+
 <% end %>
+
 
   
   
