@@ -23,11 +23,12 @@
 <div>
   Comments:
   <ul>
-  <%= tweet.comments.each do |comment| %>
+  <% tweet.comments.each do |comment| %>
     <li><%= render 'comments/comment', comment: comment %></li>
   <% end %>
   </ul>
 </div>
+
 
 <%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: @tweet %>
   
