@@ -10,8 +10,10 @@
     </div>
   <% end %>
 
-<%= form_with(model: @comment, url: tweet_comments_path(current_user)) do |form| %>
+<%= form_with(model: @comment, url: tweet_comments_path(@tweet)) do |form| %>
   <%= form.label :body %>
   <%= form.text_field :body %> <br>
   <%= form.submit %>
 <% end %>
+
+<%= params %>

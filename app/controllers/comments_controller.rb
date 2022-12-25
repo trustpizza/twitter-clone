@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def new
+    @tweet = Tweet.find(params[:tweet_id])
     @comment = Comment.new
   end
 
@@ -7,7 +8,7 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @comment = @tweet.comments.create(comment_params)
     @comment.commenter_id = current_user.id
-
+    #debugger
     if @comment.save
       redirect_to root_url
     else
