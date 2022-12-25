@@ -1,4 +1,16 @@
-<%= form_for :comment, url: tweet_comments_path(tweet.id) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "errors") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_with(model: @comment, url: tweet_comments_path(current_user)) do |form| %>
   <%= form.label :body %>
   <%= form.text_field :body %> <br>
   <%= form.submit %>

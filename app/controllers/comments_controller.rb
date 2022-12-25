@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
 
   def create
     @tweet = Tweet.find(params[:tweet_id])
-    @comment = @tweet.comments.build(comment_params)
+    @comment = @tweet.comments.create(comment_params)
+    @comment.commenter_id = current_user.id
 
     if @comment.save
-      redirect_to tweet_path(params[:id])
+      redirect_to root_url
     else
       render :new, status: :unprocessable_entity
     end
