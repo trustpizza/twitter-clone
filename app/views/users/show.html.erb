@@ -3,6 +3,8 @@
     <div class="profile-pic"></div>
     <div class="email"></div>
     <div class="bio">
+      <%= current_user.bio %>
+      <%= link_to 'Edit Profile', edit_user_path(current_user)%>
     </div>
   </div>
 </div>

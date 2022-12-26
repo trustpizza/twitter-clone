@@ -1,0 +1,6 @@
+<%= form_with(model: @user, url: user_path(current_user), method: :patch) do |form| %>
+  <%= form.text_area(:bio, cols: 20, rows:5, placeholder: "Share a bit about yourself") %> <br>
+  <%= form.submit %>
+<% end %>
+
+<%= params %>
