@@ -1,3 +1,37 @@
 #header {
-  
+  background-color: #1DA1F2;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.header-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-left, .header-right {
+  padding: 10px;
+  margin: 10px;
+}
+
+.header-left {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.header-left > * {
+  color: #1DA1F2;
+}
+
+.header-right > * {
+  color: white;
+}
+
