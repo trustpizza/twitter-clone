@@ -12,8 +12,7 @@
   <% end %>
 
   <%= form_with(model: @tweet, url: user_tweets_path(current_user), tweet: @tweet)  do |form| %>
-    <%= form.label :body%>
-    <%= form.text_field :body %> <br>
+    <%= form.text_area(:body, cols: 30, rows:10, placeholder: "Write and share your thoughts here!") %> <br>
     <%= form.submit %>
   <% end %>
 <% end %>
