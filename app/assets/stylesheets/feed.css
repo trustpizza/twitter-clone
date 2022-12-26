@@ -24,7 +24,13 @@
 
 #tweets {
   display: grid;
-  width: 80%;
+  width: 82%;
   gap: 5px;
   grid-template-rows: repeat(3, 1fr);
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
 }
