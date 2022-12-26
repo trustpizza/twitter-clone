@@ -12,8 +12,6 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
-# Bootstrap for CSS
-gem "cssbundling-rails"
 
 # Devise for authentication
 gem "devise"
@@ -35,6 +33,9 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+
+# Bootstrap for CSS
+gem "cssbundling-rails"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
