@@ -19,6 +19,10 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = current_user.profile
+  end
+
+  def show
   end
 
   private
