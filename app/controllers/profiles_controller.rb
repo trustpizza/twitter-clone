@@ -5,12 +5,14 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.build_profile(profile_params)
-    if @profile.save
-      redirect_to root_url
-      flash[:alert]='Success'
-    else
-      render :new, status: :unprocessable_entity
-    end     
+    
+    respond_to do |format|
+      if @profile.save
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end 
+    end    
   end
 
   def update
