@@ -1,0 +1,6 @@
+
+  <%= form_with(model: @profile, url: new_profile_path, profile: @profile) do |form| %>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+    <%= form.submit %>
+  <% end %>
