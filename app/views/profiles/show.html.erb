@@ -1,7 +1,6 @@
 <%= turbo_frame_tag id="profile" do  %>
   <%= turbo_frame_tag id="edit_profile_age" do %>
-    <div>Age: <%= current_user.profile.age %> </div>
-
+    <div>Age: <%= @user.profile.age %> </div>
     <%= link_to 'Edit Age', edit_profile_path %> 
   <% end %>
 <% end %>
