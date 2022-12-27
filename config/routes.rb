@@ -15,6 +15,4 @@ Rails.application.routes.draw do
   resources :profiles
 
   root 'tweets#index'
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

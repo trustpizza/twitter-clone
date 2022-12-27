@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   end
 
   def index
+    @users = User.all
     @tweets = Tweet.all.ordered
   end
 
