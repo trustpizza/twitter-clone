@@ -16,17 +16,21 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
     @profile = Profile.find_by(user_id: current_user.id)
   end
 
   def update
+    @user = User.find(params[:id])
     @profile = Profile.find_by(user_id: current_user.id)
 
-    if @profile.update(profile_params)
-      redirect_to user_path(current_user.id)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    respond_to do |format|
+      if @profile.update(profile_params)
+        format.turbo_stream
+      else
+        format.html {render :edit, status: :unprocessable_entity}
+      end
+    end 
   end
 
   def show
