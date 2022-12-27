@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :followed, foreign_key: "sender_id", class_name: "Follow", dependent: :destroy
 
   has_one :profile, dependent: :destroy
+
+  scope :popular, -> { order(followers: :ascending) }
 end
