@@ -29,8 +29,15 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:tweet_id])
-    @tweet.destroy
+    @tweet = Tweet.find(params[:id])
+    
+    respond_to do |format|
+      if @tweet.destroy
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
 
 

@@ -28,7 +28,8 @@
       <%= render tweet.comments.ordered %>
     <% end %>
   </div>
-  <%= tweet.id %>
-  <%= button_to 'Delete', tweet_path(tweet), method: :delete  %>
+  <%= button_to 'Delete', tweet_path(tweet.id), method: :delete, data: { turbo_confirm: 'Are you sure?'}  %>
+  <%= params %>
 </div>
+
 
