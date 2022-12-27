@@ -1,4 +1,4 @@
-<%= turbo_stream.replace "profile" do %>
+<%= turbo_stream.update "profile" do %>
   <%= turbo_frame_tag id="edit_profile" do %>
     <div>Name: <%= @user.profile.name %> </div>
     <div>Age: <%= @user.profile.age %> </div>
