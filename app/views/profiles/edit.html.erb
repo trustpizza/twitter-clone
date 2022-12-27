@@ -1,7 +1,9 @@
-<%= turbo_frame_tag id="edit_profile_age" do %>
+<%= turbo_frame_tag id="edit_profile" do %>
   <%= form_with(model: @profile, url: profile_path, method: :patch, profile: current_user.profile) do |form| %>
     <%= form.label :age %>
     <%= form.number_field :age, in: 1..100 %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
     <%= form.submit %>
   <% end %>
 <% end %>
