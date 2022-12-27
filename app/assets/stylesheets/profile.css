@@ -32,3 +32,8 @@
 .email {
   grid-area: 2 / 1 / 3 / 2;
 }
+
+turbo-frame {
+  display: block;
+  border: 1px solid blue;
+}
