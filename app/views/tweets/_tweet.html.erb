@@ -28,4 +28,7 @@
       <%= render tweet.comments.ordered %>
     <% end %>
   </div>
+  <%= tweet.id %>
+  <%= button_to 'Delete', tweet_path(tweet), method: :delete  %>
 </div>
+
