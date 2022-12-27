@@ -3,8 +3,9 @@
     <div class="profile-pic"></div>
     <div class="email"></div>
     <div class="bio">
-      <%= current_user.bio %>
-      <%= link_to 'Edit Profile', edit_user_path(current_user)%>
+      <%= turbo_frame_tag id="profile", src: new_profile_path do %>
+        <%= link_to 'Edit Profile', new_profile_path %>
+      <% end %>
     </div>
   </div>
 </div>
