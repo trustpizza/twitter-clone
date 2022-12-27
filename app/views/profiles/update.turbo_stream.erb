@@ -1,4 +1,5 @@
 <%= turbo_stream.replace "profile" do %>
   <div> Age: <%= @user.profile.age %> </div>
   <div> Name: <%= @user.profile.name %> </div>
+  <div> Bio: <%= @user.profile.bio %> </div>
 <% end %>
