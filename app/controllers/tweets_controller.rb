@@ -26,8 +26,6 @@ class TweetsController < ApplicationController
   def edit
     @tweet = Tweet.find(params[:tweet_id])
     @user = User.find(@tweet.author_id)
-
-
   end
 
   def destroy
