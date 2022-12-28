@@ -13,5 +13,8 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  scope :popular, -> { order(follower: :asc) }
+  scope :popular, -> { joins(:followers).group('sender_id').order(:count) }
+  # Followers have a receiver id that matches up to a Users Id
+  # Order by the number of receiver id's that match to a Users Id
+  # Show the user with the most matches
 end
