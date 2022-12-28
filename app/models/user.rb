@@ -13,5 +13,5 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  scope :popular, -> { order(followers: :ascending) }
+  scope :popular, -> { order(follower: :asc) }
 end
