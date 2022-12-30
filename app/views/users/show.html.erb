@@ -5,6 +5,11 @@
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path do %>
       <% end %>
+      <%= button_to 'Follow User', user_follow_path(current_user),
+          params: { 
+
+          }
+      %>
     </div>
   </div>
 </div>
