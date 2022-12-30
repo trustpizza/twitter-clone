@@ -27,10 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_28_022719) do
   create_table "follows", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "sender_id_id"
-    t.bigint "receiver_id_id"
-    t.index ["receiver_id_id"], name: "index_follows_on_receiver_id_id"
-    t.index ["sender_id_id"], name: "index_follows_on_sender_id_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.index ["receiver_id"], name: "index_follows_on_receiver_id"
+    t.index ["sender_id"], name: "index_follows_on_sender_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -75,8 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_28_022719) do
 
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users", column: "commenter_id"
-  add_foreign_key "follows", "users", column: "receiver_id_id"
-  add_foreign_key "follows", "users", column: "sender_id_id"
+  add_foreign_key "follows", "users", column: "receiver_id"
+  add_foreign_key "follows", "users", column: "sender_id"
   add_foreign_key "likes", "tweets"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
