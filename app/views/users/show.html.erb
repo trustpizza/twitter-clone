@@ -5,11 +5,14 @@
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path do %>
       <% end %>
-      <%= button_to 'Follow User', user_follow_path(current_user),
-          params: { 
-
+      <%= button_to 'Follow User', user_follows_path(current_user.id),
+          params: { follow: {
+              sender_id: current_user.id,
+              receiver_id: @user.id
+            }
           }
       %>
+      <%= @user %>
     </div>
   </div>
 </div>

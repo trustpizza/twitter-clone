@@ -11,7 +11,7 @@ class FollowsController < ApplicationController
 
   def create
     @follow = Follow.create(follow_params)
-
+    
     if @follow.save
       redirect_to root_url
     else
