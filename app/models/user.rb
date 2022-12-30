@@ -13,6 +13,14 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  def can_follow?(receiver)
+    if self.followed.any? { |follow| follow.receiver_id == receiver.id }
+      false
+    else 
+      true
+    end
+  end
+
   # Scopes
 
   # scope :popular, -> { joins(:followers).group('sender_id').order(count('id'), :asc) }
