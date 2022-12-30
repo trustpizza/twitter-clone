@@ -5,24 +5,7 @@
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path  %>
       
-      <% if current_user.can_follow?(@user) %>
-        <%= button_to 'Follow User', user_follows_path(current_user.id),
-            params: { follow: {
-                sender_id: current_user.id,
-                receiver_id: @user.id
-              }
-            }
-        %>
-      <% else %>
-        <%= button_to 'Unfollow', user_follow_path(current_user.id, @user.id),
-            method: :delete,
-            params: { follow: {
-                sender_id: current_user.id,
-                receiver_id: @user.id
-              }
-            }
-        %>
-      <% end %>
+      <%= render 'follow_buttons', user: @user %>
     </div>
   </div>
 </div>

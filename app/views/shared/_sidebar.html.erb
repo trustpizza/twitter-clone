@@ -5,6 +5,7 @@
       <% @users.each do |user| %>
         <li>
           <%= link_to "#{user.email}", user_path(user.id) %>
+          <%= render 'users/follow_buttons', user: user%>
         </li>
       <% end %>
     </ul>
