@@ -18,6 +18,7 @@ class FollowsController < ApplicationController
 
   def destroy
     @follow = Follow.find_by(follow_params)
+    #debugger
     return unless @follow.destroy
 
     redirect_to request.referrer

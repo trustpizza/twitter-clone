@@ -5,8 +5,17 @@
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path  %>
       
-      
+
         <%= button_to 'Follow User', user_follows_path(current_user.id),
+            params: { follow: {
+                sender_id: current_user.id,
+                receiver_id: @user.id
+              }
+            }
+        %>
+
+        <%= button_to 'Unfollow', user_follow_path(current_user.id, @user.id),
+            method: :delete,
             params: { follow: {
                 sender_id: current_user.id,
                 receiver_id: @user.id
