@@ -5,7 +5,7 @@
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path  %>
       
-      <% if %>
+      <% if current_user.can_follow?(@user) %>
         <%= button_to 'Follow User', user_follows_path(current_user.id),
             params: { follow: {
                 sender_id: current_user.id,
@@ -13,7 +13,7 @@
               }
             }
         %>
-
+      <% else %>
         <%= button_to 'Unfollow', user_follow_path(current_user.id, @user.id),
             method: :delete,
             params: { follow: {
