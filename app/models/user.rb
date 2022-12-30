@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   # Scopes
 
-  # scope :popular, -> { joins(:followers).group('sender_id').order(count('id'), :asc) }
+  scope :popular, -> { joins(:followers).group('sender_id').order(count('id'), :asc) }
 
   # Followers have a receiver id that matches up to a Users Id
   # Order by the number of receiver id's that match to a Users Id
