@@ -11,15 +11,16 @@ class FollowsController < ApplicationController
 
   def create
     @follow = Follow.create(follow_params)
-    
-    if @follow.save
-      redirect_to root_url
-    else
-      render :new, status: :unprocessable_entity
-    end
+    return unless @follow.save
+
+    redirect_to request.referrer
   end
 
   def destroy
+    @follow = Follow.find_by(follow_params)
+    return unless @follow.destroy
+
+    redirect_to request.referrer
   end
 
   private
