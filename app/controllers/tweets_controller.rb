@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = current_user.followed
     @tweets = Tweet.all.ordered
   end
 

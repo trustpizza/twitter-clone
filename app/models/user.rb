@@ -25,6 +25,14 @@ class User < ApplicationRecord
     end
   end
 
+  def feed_users
+    out = []
+    self.followed.each do |follow|
+      out << follow.receiver
+    end
+    out << self
+  end
+
   # Scopes
 
   scope :popular, -> { order(follows_count: :desc).take(5) }
