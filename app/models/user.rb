@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   has_many :followers, foreign_key: "receiver_id", 
             class_name: "Follow", 
-            counter_cache: true,  
             dependent: :destroy
   has_many :followed, foreign_key: "sender_id", 
             class_name: "Follow", 
@@ -28,7 +27,7 @@ class User < ApplicationRecord
 
   # Scopes
 
-  scope :popular, -> { joins(:followers).group('sender_id').order(count('id'), :desc) }
+  scope :popular, -> { order(follows_count: :desc).take(5) }
 
   # Followers have a receiver id that matches up to a Users Id
   # Order by the number of receiver id's that match to a Users Id
