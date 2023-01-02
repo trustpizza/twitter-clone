@@ -2,7 +2,7 @@
   <div>Follow Popular Users</div>  <br>
   <div style="align-self: flex-start">
     <ul>
-      <% @users.each do |user| %>
+      <% @popular.each do |user| %>
         <li>
           <%= link_to "#{user.email}", user_path(user.id) %>
           <%= render 'users/follow_buttons', user: user%>
