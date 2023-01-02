@@ -11,6 +11,7 @@ class Tweet < ApplicationRecord
 
   scope :ordered, -> {order(id: :desc)}
 
+
   def liked_by?(user)
     likes.any? { |like| like.user == user }
   end

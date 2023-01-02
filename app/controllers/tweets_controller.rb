@@ -4,8 +4,21 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @users = current_user.followed
-    @tweets = Tweet.all.ordered
+    @users = current_user.feed_users
+
+    user_ids = []
+    @users.each do |user|
+      user_ids << user.id
+    end
+
+    tweets = []
+    user_ids.each do |id|
+      Tweet.where(author_id: id).ordered.each do |tweet|
+        tweets << tweet
+      end
+    end
+
+    @tweets = tweets
   end
 
   def new
