@@ -25,13 +25,6 @@ class User < ApplicationRecord
     end
   end
 
-  def feed_users
-    out = []
-    self.followed.each do |follow|
-      out << follow.receiver
-    end
-    out << self
-  end
 
   # Scopes
 

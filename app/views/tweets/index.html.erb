@@ -1,5 +1,6 @@
 <div id="feed">
   <div class="card"><%= turbo_frame_tag id="new_tweet", src:new_user_tweet_path(current_user), loading: :lazy %></div>
+
   <div id="tweets">
     <%= render @tweets %>
   </div>

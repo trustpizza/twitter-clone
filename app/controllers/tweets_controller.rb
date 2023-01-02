@@ -4,21 +4,10 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @users = current_user.feed_users
+    timeline_ids = current_user.followed.pluck(:receiver_id) << current_user.id
 
-    user_ids = []
-    @users.each do |user|
-      user_ids << user.id
-    end
-
-    tweets = []
-    user_ids.each do |id|
-      Tweet.where(author_id: id).ordered.each do |tweet|
-        tweets << tweet
-      end
-    end
-
-    @tweets = tweets
+    @tweets = Tweet.where('author_id IN (?)', timeline_ids)
+                   .order(created_at: :desc)
   end
 
   def new

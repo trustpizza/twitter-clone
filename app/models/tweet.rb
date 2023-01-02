@@ -9,8 +9,7 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  scope :ordered, -> {order(id: :desc)}
-
+  #scope :ordered, -> {order(id: :desc)}
 
   def liked_by?(user)
     likes.any? { |like| like.user == user }
