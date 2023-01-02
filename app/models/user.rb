@@ -21,6 +21,10 @@ class User < ApplicationRecord
     end
   end
 
+  def follower_count
+    self.followers.count
+  end
+
   # Scopes
 
   scope :popular, -> { joins(:followers).group('sender_id').order(count('id'), :desc) }
