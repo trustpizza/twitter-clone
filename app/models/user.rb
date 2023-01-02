@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  has_many :followers, foreign_key: "receiver_id", class_name: "Follow", dependent: :destroy
+  has_many :followers, foreign_key: "receiver_id", class_name: "Follow", counter_cache: :follows_count,  dependent: :destroy
   has_many :followed, foreign_key: "sender_id", class_name: "Follow", dependent: :destroy
 
   has_one :profile, dependent: :destroy
@@ -19,10 +19,6 @@ class User < ApplicationRecord
     else 
       true
     end
-  end
-
-  def follower_count
-    self.followers.count
   end
 
   # Scopes
