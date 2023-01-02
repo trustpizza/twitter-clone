@@ -16,5 +16,10 @@
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
+set :output, "log/cron.log"
+
+every 1.minute do
+  rake "counters:update"
+end
 
 # Learn more: http://github.com/javan/whenever
