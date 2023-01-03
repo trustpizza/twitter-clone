@@ -15,6 +15,9 @@ gem "pg", "~> 1.1"
 # Devise for authentication
 gem "devise"
 
+# Gravatar for profile pics
+gem 'gravtastic'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
