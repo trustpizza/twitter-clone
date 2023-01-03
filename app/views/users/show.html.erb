@@ -1,6 +1,8 @@
 <div class="profile">
   <div class="profile-card">
-    <div class="profile-pic"></div>
+    <div class="profile-pic">
+      <%= image_tag current_user.gravatar_url,:class => "gravatar" %>
+    </div>
     <div class="email"></div>
     <div class="bio">
       <%= turbo_frame_tag id="profile", src: profile_path  %>
