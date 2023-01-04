@@ -1,2 +1,20 @@
-<%= comment.body %> 
-<%= comment.commenter.email %> <br>
+<div class="ms-2 me-2 ps-3 pe-3">
+  <div class="mb-3 p-3 border rounded hover-shadow">
+    <div class="d-flex align-item-center">
+      <div>
+        <%= image_tag comment.commenter.gravatar_url(default: :mm),
+                      :class => "gravatar-comment"
+        %>
+        <%= link_to "#{comment.commenter.email}", user_path(comment.commenter),
+                    style: "text-decoration: none"
+        %>
+      </div>
+      <p class="text-secondary m-0 ms-3">
+        <%= comment.human_readable_created_at%>
+      </p>
+    </div>
+    <div class="ms-5" styl="word-wrap: break-word">
+      <%= comment.body %>
+    </div>
+  </div>
+</div>

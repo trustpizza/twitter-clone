@@ -5,4 +5,8 @@ class Comment < ApplicationRecord
   scope :ordered, -> {order(id: :desc)}
 
   validates :body, presence: true, length: { in: 1..140 }
+
+  def human_readable_created_at
+    created_at.strftime("%b %-d, %Y - %l:%M %P")
+  end
 end
