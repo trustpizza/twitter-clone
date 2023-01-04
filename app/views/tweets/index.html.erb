@@ -1,9 +1,18 @@
-<div id="feed">
-  <div class="card"><%= turbo_frame_tag id="new_tweet", src:new_user_tweet_path(current_user), loading: :lazy %></div>
-
-  <div id="tweets">
-    <%= render @tweets %>
+<div class="bg-light">
+  <div class="container pt-5 pt-2">
+    <h5 class="text-start text-secondary">Latest Posts</h5>
+    <div class="row justify-content-between mt-2">
+      <div class="col-8">
+        <div class="card">
+          <%= turbo_frame_tag id="new_tweet", src:new_user_tweet_path(current_user) %>
+        </div>
+          <div id="tweets">
+            <%= render @tweets %>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<%= render 'shared/sidebar' %>
+
+<!-- <%= render 'shared/sidebar' %> -->

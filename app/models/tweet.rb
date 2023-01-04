@@ -11,6 +11,10 @@ class Tweet < ApplicationRecord
 
   #scope :ordered, -> {order(id: :desc)}
 
+  def human_readable_created_at
+    created_at.strftime("%b %-d, %Y - %l:%M %P")
+  end
+
   def liked_by?(user)
     likes.any? { |like| like.user == user }
   end
