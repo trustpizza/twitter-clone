@@ -1,13 +1,30 @@
-<div class="profile">
+<!-- <div class="profile">
   <div class="profile-card">
     <div class="profile-pic">
       <%= image_tag current_user.gravatar_url,:class => "gravatar" %>
     </div>
     <div class="email"></div>
     <div class="bio">
-      <%= turbo_frame_tag id="profile", src: profile_path  %>
       
       <%= render 'follow_buttons', user: @user %>
     </div>
+  </div>
+</div>
+ -->
+
+
+<div class="row m-2 justify-content-center">
+  <div class="col-4 h-100 me-5 border rounded p-4 shadow-sm">
+    <div class="d-flex flex-column">
+      <%= image_tag @user.gravatar_url(default: :mm),
+          class: "gravatar border w-50"
+      %>
+      <h3 class="text-primary mt-3 no-wrap"><%= @user.email.capitalize%></h3>
+      <p class="">
+        <%= turbo_frame_tag id="profile", src: profile_path  %>
+      </p>
+    </div>
+    <hr class="m-0 mb-2">
+
   </div>
 </div>
