@@ -5,7 +5,7 @@
 <%= turbo_stream.update id="tweet_#{@tweet.id}" do %>
   <% like = @tweet.find_like(current_user) %>
     <% if @tweet.liked_by?(current_user)%>
-      <%= button_to 'Delete Like', 
+      <%= button_to 'Unlike', 
                     tweet_like_path(@tweet, like, like: {user_id: current_user.id, tweet_id: @tweet.id}),
                     method: :delete
                     %>
