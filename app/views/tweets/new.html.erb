@@ -1,5 +1,5 @@
 <div class="row justify-content-center m-4 p-4">
-  <div class="col-6">
+  <div class="col-6 ">
     <%= turbo_frame_tag id="new_tweet" do %>
 
     <%= form_with(model: @tweet, url: user_tweets_path(current_user)) do |form| %>
@@ -14,7 +14,7 @@
         </div>
       <% end %>
 
-      <div class="mb-3">
+      <div class="mb-3 p-2">
         <%= form.label :body, "What's on your mind?", class: "form-label fs-3" %>
         <%= form.text_area :body, cols: 15, rows: 5,
                             placeholder: "Enter your text here",
