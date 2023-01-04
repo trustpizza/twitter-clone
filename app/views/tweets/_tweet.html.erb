@@ -61,11 +61,12 @@
     </div>
   </div>
 
+<%= turbo_frame_tag id="tweet_#{tweet.id}_new_comment" do %>
+      <%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: tweet %>
+  <% end %>
   <div class="comment-field">
-    <%= turbo_frame_tag id="tweet_#{tweet.id}_new_comment" do %>
-      <%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: tweet %> <br>
+    
       <%= render tweet.comments.ordered %>
-    <% end %>
   </div>
 
 </div>
