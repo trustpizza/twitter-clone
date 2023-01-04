@@ -15,6 +15,9 @@ gem "pg", "~> 1.1"
 # Devise for authentication
 gem "devise"
 
+# Css bundling
+gem 'cssbundling-rails'
+
 # Gravatar for profile pics
 gem 'gravtastic'
 
