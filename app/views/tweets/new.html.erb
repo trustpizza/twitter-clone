@@ -1,18 +1,28 @@
-<%= turbo_frame_tag id="new_tweet" do %>
-  <% if @tweet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="row justify-content-center m-4 p-4">
+  <div class="col-6">
+    <%= turbo_frame_tag id="new_tweet" do %>
 
-      <ul>
-      <% @tweet.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <%= form_with(model: @tweet, url: user_tweets_path(current_user)) do |form| %>
+      <% if @tweet.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this post from being created:</h2>
+          <ul>
+            <% @tweet.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= form_with(model: @tweet, url: user_tweets_path(current_user), tweet: @tweet)  do |form| %>
-    <%= form.text_area(:body, cols: 30, rows:10, placeholder: "Write and share your thoughts here!") %> <br>
-    <%= form.submit %>
-  <% end %>
-<% end %>
+      <div class="mb-3">
+        <%= form.label :body, "What's on your mind?", class: "form-label fs-3" %>
+        <%= form.text_area :body, cols: 15, rows: 5,
+                            placeholder: "Enter your text here",
+                            class: "form-control bg-light shadow-sm",
+                            autofocus: true %>
+        <%= form.submit "Post", class: "btn btn-primary mt-4" %>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
