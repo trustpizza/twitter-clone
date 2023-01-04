@@ -61,15 +61,25 @@
     </div>
   </div>
 
-<%= turbo_frame_tag id="tweet_#{tweet.id}_new_comment" do %>
+  <%= turbo_frame_tag id="tweet_#{tweet.id}_new_comment" do %>
       <%= link_to 'New Comment', new_tweet_comment_path(tweet.id), tweet: tweet %>
   <% end %>
-  
-  <%= turbo_frame_tag id="#{tweet.id}_comments" do %>
-    <div class="ms-2 me-2 ps-3 pe-3">
-      <% tweet.comments.each do |comment|%>
-        <%= render 'comments/comment', comment: comment %> 
+
+  <section class="accordion">
+    <input type="checkbox" name="collapse" id="handle1" checked="checked">
+
+    <h5 class="hanlde">
+      <label for="handle1">Show Comments</label>
+    </h5>
+
+    <div class="collapsed-content">
+      <%= turbo_frame_tag id="#{tweet.id}_comments" do %>
+        <div class="ms-2 me-2 ps-3 pe-3">
+          <% tweet.comments.each do |comment|%>
+            <%= render 'comments/comment', comment: comment %>
+          <% end %>
+      </div>
       <% end %>
-  </div>
-  <% end %>
+    </div>
+  </section>
 </div>
