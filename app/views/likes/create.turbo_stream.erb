@@ -5,12 +5,18 @@
 <%= turbo_stream.update id="tweet_#{@tweet.id}" do %>
   <% like = @tweet.find_like(current_user) %>
     <% if @tweet.liked_by?(current_user)%>
-      <%= button_to 'Delete Like', 
-                    tweet_like_path(@tweet, like, like: {user_id: current_user.id, tweet_id: @tweet.id}),
-                    method: :delete
-                    %>
+      <%= button_to tweet_like_path(@tweet, like, like: { user_id: current_user.id, tweet_id: @tweet.id }),
+                            method: :delete,
+                            class: "btn btn-primary btn-sm d-flex align-items-center" do
+                        %>
+                  Liked
+      <% end %>
     <% else %>
-      <%= button_to 'like', tweet_likes_path(@tweet, like: {user_id: current_user.id, tweet_id: @tweet.id})%>
+      <%= button_to tweet_likes_path(@tweet, like: { user_id: current_user.id, tweet_id: @tweet.id }),
+                            class: "btn btn-outline-primary btn-sm d-flex" do
+                  %>
+                    Like
+        <% end %>  
     <% end %>
 <% end %>
 
