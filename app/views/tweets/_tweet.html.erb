@@ -26,6 +26,36 @@
         <% end %>
       </div>
     </div>
+
+    <div class="container">
+      <div class="container mb-4">
+        <p class="fs-5" style="word-wrap: break-word"><%= tweet.body %></p>
+      </div>
+      <div class="d-flex ms-2 ps-1 justify-content-between align-items-center">
+        <div class="d-flex">
+            <div class="button-field">
+              <%= turbo_frame_tag id="tweet_#{tweet.id}", loading: :lazy do %>
+                <% like = tweet.find_like(current_user) %>
+                <% if tweet.liked_by?(current_user)%>
+                  <%= button_to 'Delete Like',
+                                tweet_like_path(tweet, like, like: {user_id: current_user.id, tweet_id: tweet.id}),
+                                method: :delete
+                                %>
+                <% else %>
+                  <%= button_to 'like', tweet_likes_path(tweet, like: {user_id: current_user.id, tweet_id: tweet.id})%>
+                <% end %>
+              <% end %>
+
+              <div class="d-flex me-3">
+                <%= turbo_frame_tag id="tweet_#{tweet.id}_like_count" do %>
+                  <%= pluralize(tweet.likes.count, 'Like')%>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
