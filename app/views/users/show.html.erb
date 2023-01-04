@@ -19,12 +19,14 @@
       <%= image_tag @user.gravatar_url(default: :mm),
           class: "gravatar border w-50"
       %>
-      <h3 class="text-primary mt-3 no-wrap"><%= @user.profile.name.upcase%></h3>
+      <h3 class="text-primary mt-3 no-wrap"><%= @user.profile.name%></h3>
       <p class="">
         <%= turbo_frame_tag id="profile", src: profile_path  %>
       </p>
     </div>
     <hr class="m-0 mb-2">
-
+    <% unless current_user == @user %>
+      <%= render 'follow_buttons', user: @user %>
+    <% end %>
   </div>
 </div>
