@@ -12,7 +12,7 @@ class FollowsController < ApplicationController
   def create
     @follow = Follow.create(follow_params)
     return unless @follow.save
-
+    
     redirect_to request.referrer
   end
 
