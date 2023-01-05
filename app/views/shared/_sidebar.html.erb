@@ -1,13 +1,11 @@
-<div id="sidebar" style="grid-column-start: 3">
-  <div>Follow Popular Users</div>  <br>
-  <div style="align-self: flex-start">
-    <ul>
-      <% User.popular.each do |user| %>
-        <li>
-          <%= link_to "#{user.email}", user_path(user.id) %>
-          <%= render 'users/follow_buttons', user: user%>
-        </li>
-      <% end %>
-    </ul>
+<div class="col-3 h-25 mt-3 d-flex flex-column sticky-top affix" style="z-index: 1000">
+  <div class="border">
+    <h6 class="text-secondary"> Popular Users </h6>
+    <% User.popular.each do |user| %>
+      <div class="m-3">
+        <%= link_to "#{user.email}", user_path(user.id) %>
+        <%= render 'users/follow_buttons', user: user%>
+      </div>
+    <% end %>
   </div>
 </div>
