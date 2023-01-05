@@ -1,9 +1,14 @@
 class TweetsController < ApplicationController
+
   def show
     @tweet = Tweet.find(params[:id])
   end
 
   def index
+    unless current_user.profile
+      redirect_to new_profile_path(current_user)
+    end
+
     timeline_ids = current_user.followed.pluck(:receiver_id) << current_user.id
 
     @tweets = Tweet.where('author_id IN (?)', timeline_ids)
