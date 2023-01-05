@@ -14,4 +14,23 @@
       <%= render 'follow_buttons', user: @user %>
     <% end %>
   </div>
+
+</div>
+<!-- Posts, will eventually move them into the correct place -->
+
+<div>
+  <div class="container pt-5 pt-2">
+    <h5 class="text-start text-secondary justify-content-center" style="display: flex">Latest Posts</h5>
+    <div class="row justify-content-center mt-2">
+      <div class="col-8">
+          <% if @user.tweets.count.zero? %>
+            <div class="p-3 text-secondary">
+               <%= "No Posts" %>
+            </div>   
+          <% else %>
+            <%= render "tweets/user_tweets", user: @user %>   
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

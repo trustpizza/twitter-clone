@@ -1,0 +1,3 @@
+<% @user.tweets.ordered.each do |tweet| %>
+  <%= render "tweets/tweet", tweet: tweet%>
+<% end %>
