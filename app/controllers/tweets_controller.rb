@@ -5,9 +5,6 @@ class TweetsController < ApplicationController
   end
 
   def index
-    unless current_user.profile
-      redirect_to new_profile_path
-    end
 
     timeline_ids = current_user.followed.pluck(:receiver_id) << current_user.id
 

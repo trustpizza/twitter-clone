@@ -4,7 +4,7 @@
                   :class => "gravatar-home"
     %>
     <div class="row col ps-1">
-      <%= link_to "#{tweet.author.profile.name}",user_path(tweet.author.id), 
+      <%= link_to "#{tweet.author.name}",user_path(tweet.author.id), 
                   :class => "fw-semibold text-primary text-decoration-none"
       %>
       <div class="d-flex justify-content-between">

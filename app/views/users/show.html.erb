@@ -4,12 +4,10 @@
       <%= image_tag @user.gravatar_url(default: :mm),
           class: "gravatar border w-50"
       %>
-      <% if @user.profile %>
-        <h3 class="text-primary mt-3 no-wrap"><%= @user.profile.name%></h3>
-        <p class="">
-          <%= turbo_frame_tag id="profile", src: profile_path  %>
-        </p>
-      <% end %>
+      <h3 class="text-primary mt-3 no-wrap"><%= @user.name%></h3>
+      <p class="">
+        <%= turbo_frame_tag id="profile", src: profile_path  %>
+      </p>
     </div>
     <hr class="m-0 mb-2">
     <% unless current_user == @user %>
@@ -19,21 +17,21 @@
 
 </div>
 <!-- Posts, will eventually move them into the correct place -->
-<% if @user.profile %>
-  <div>
-    <div class="container pt-5 pt-2">
-      <h5 class="text-start text-secondary justify-content-center" style="display: flex">Latest Posts</h5>
-      <div class="row justify-content-center mt-2">
-        <div class="col-8">
-            <% if @user.tweets.count.zero? %>
-              <div class="p-3 text-secondary">
-                <%= "No Posts" %>
-              </div>   
-            <% else %>
-              <%= render "tweets/user_tweets", user: @user %>   
-            <% end %>
-        </div>
+
+<div>
+  <div class="container pt-5 pt-2">
+    <h5 class="text-start text-secondary justify-content-center" style="display: flex">Latest Posts</h5>
+    <div class="row justify-content-center mt-2">
+      <div class="col-8">
+          <% if @user.tweets.count.zero? %>
+            <div class="p-3 text-secondary">
+              <%= "No Posts" %>
+            </div>   
+          <% else %>
+            <%= render "tweets/user_tweets", user: @user %>   
+          <% end %>
       </div>
     </div>
   </div>
-<% end %>
+</div>
+
