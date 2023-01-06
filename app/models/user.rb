@@ -23,6 +23,8 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  after_create :send_welcome_email
+
   def can_follow?(receiver)
     if self.followed.any? { |follow| follow.receiver_id == receiver.id }
       false
@@ -38,12 +40,13 @@ class User < ApplicationRecord
       user
   end
 
-
   # Scopes
 
   scope :popular, -> { order(follows_count: :desc).take(5) }
 
-  # Followers have a receiver id that matches up to a Users Id
-  # Order by the number of receiver id's that match to a Users Id
-  # Show the user with the most matches
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_later
+  end
 end
