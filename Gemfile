@@ -18,12 +18,16 @@ gem "devise"
 # Gravatar for profile pics
 gem 'gravtastic'
 
-# Figaro 
+# Figaro - not currently used, needs fixing up
 gem 'figaro'
 
 # Authentication via Facebook
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+
+# Letter Opener for mailer
+gem "letter_opener", group: :development
+
 
 
 # Use the Puma web server [https://github.com/puma/puma]
