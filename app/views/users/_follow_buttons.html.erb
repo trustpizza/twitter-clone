@@ -5,7 +5,7 @@
             sender_id: current_user.id,
             receiver_id: user.id
           }
-        }
+        }, class: "btn btn-primary w-100"
     %>
   <% else %>
     <%= button_to 'Unfollow', user_follow_path(current_user.id, user.id),
@@ -14,7 +14,7 @@
             sender_id: current_user.id,
             receiver_id: user.id
           }
-        }
+        }, class: "btn btn-primary w-100"
     %>
   <% end %>
 </div>

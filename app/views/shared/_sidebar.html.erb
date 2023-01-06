@@ -1,9 +1,12 @@
-<div class="col-3 h-25 mt-3 d-flex flex-column sticky-top affix" style="z-index: 1000">
-  <div class="border">
-    <h6 class="text-secondary"> Popular Users </h6>
+<div class="col-3 h-25 mt-3 d-flex flex-column sticky-top affix" style="top:90px;">
+  <div class="border rounded shadow-sm hover-shadow-dark bg-white">
+    <h6 class="text-secondary m-4 mb-5"> Popular Users </h6>
     <% User.popular.each do |user| %>
-      <div class="m-3">
-        <%= link_to "#{user.email}", user_path(user.id) %>
+      <div class="m-3 justify-content-center">
+        <%= link_to "#{user.name}", user_path(user.id) %>
+        <%= image_tag user.gravatar_url(default: :mm),
+                  :class => "gravatar-home"
+        %>
         <%= render 'users/follow_buttons', user: user%>
       </div>
     <% end %>
