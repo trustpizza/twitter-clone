@@ -5,9 +5,9 @@
           class: "gravatar border w-50"
       %>
       <h3 class="text-primary mt-3 no-wrap"><%= @user.name%></h3>
-      <p class="">
+      <div class="d-flex">
         <%= turbo_frame_tag id="profile", src: profile_path  %>
-      </p>
+      </div>
     </div>
     <hr class="m-0 mb-2">
     <% unless current_user == @user %>

@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.save
         format.turbo_stream
-        redirect_to user_tweets_path(current_user)
       else
         format.html { render :new, status: :unprocessable_entity }
       end 

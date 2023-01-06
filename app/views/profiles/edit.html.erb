@@ -2,10 +2,10 @@
   <%= form_with(model: @profile, url: profile_path, method: :patch, profile: current_user.profile) do |form| %>
     <%= form.label :age %>
     <%= form.number_field :age, in: 1..100 %> <br>
-    <%= form.label :name %>
+    <%= form.label :nickname %>
     <%= form.text_field :name %> <br>
     <%= form.label :bio %>
-    <%= form.text_field :bio %>
+    <%= form.text_field :bio %> <br>
     <%= form.submit %>
   <% end %>
 <% end %>

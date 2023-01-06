@@ -1,11 +1,11 @@
 <%= turbo_frame_tag id="profile" do  %>
   <%= form_with(model: @profile, url: profiles_path, profile: @profile) do |form| %>
     <%= form.label :age %>
-    <%= form.number_field :age, in: 1..100 %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.number_field :age, in: 1..100 %> <br>
+    <%= form.label :nickname %>
+    <%= form.text_field :name %> <br>
     <%= form.label :bio %>
-    <%= form.text_field :bio %>
+    <%= form.text_field :bio %> <br>
     <%= form.submit %>
   <% end %>
 <% end %>
