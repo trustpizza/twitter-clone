@@ -18,6 +18,14 @@ gem "devise"
 # Gravatar for profile pics
 gem 'gravtastic'
 
+# Figaro 
+gem 'figaro'
+
+# Authentication via Facebook
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
