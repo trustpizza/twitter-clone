@@ -20,6 +20,7 @@
                             placeholder: "Enter your text here",
                             class: "form-control bg-light shadow-sm",
                             autofocus: true %>
+        <%= form.file_field :image, class: "form-control" %>
         <%= form.submit "Post", class: "btn btn-primary mt-4" %>
       </div>
     <% end %>

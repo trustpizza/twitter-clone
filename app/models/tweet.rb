@@ -9,6 +9,9 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  # Images on tweets
+  has_one_attached :image, :dependent => :destroy
+
   scope :ordered, -> {order(id: :desc)}
 
   def human_readable_created_at
